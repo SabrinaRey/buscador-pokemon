@@ -1,24 +1,44 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState, useEffect} from 'react';
+import TarjetaPokemon from './components/TarjetaPokemon'
+
 import './App.css';
 
-function App() {
+const App= () => {
+
+  const [page, setPage] = useState('Pikachu')
+  const [pokemon, setPokemon] = useState({})
+  
+
+  const handleClick = e => {
+       setPage(e.target.id)
+  }
+
+ 
+
+  useEffect (()=> {
+    fetch(`https://pokeapi.co/api/v2/pokemon/${page}`)
+    .then(res=>res.json())
+    .then(data=>setPokemon(data))
+  }, [page])
+
+console.log(pokemon.sprites && pokemon.sprites.front_default)
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div>
+      <h1>Pokemon</h1>
+        </div>
+
+        <div className = "main">
+        {pokemon && <TarjetaPokemon nombre= {pokemon.name} peso ={pokemon.weight} largo={pokemon.height} img={pokemon.sprites && pokemon.sprites.front_default}/>}
+        </div>
+     <section>
+       <button id="pikachu" onClick={handleClick}>Pikachu</button>
+       <button id="charmander" onClick={handleClick}>Charmander</button>
+       <button id="squirtle" onClick={handleClick}>Squirtle</button>
+       <button id="bulbasaur" onClick={handleClick}>Bulbasur</button>       
+       </section>      
+
+       
     </div>
   );
 }
