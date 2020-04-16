@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import './App.css';
 import TarjetaPokemon from './components/TarjetaPokemon'
 
 import './App.css';
@@ -21,7 +22,6 @@ const App= () => {
     .then(data=>setPokemon(data))
   }, [page])
 
-console.log(pokemon.sprites && pokemon.sprites.front_default)
   return (
     <div className="App">
       <div>

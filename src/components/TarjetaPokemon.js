@@ -1,5 +1,7 @@
 import React from 'react';
 
+
+
 const TarjetaPokemon = ({nombre, img, largo, peso}) => {
    
     return (

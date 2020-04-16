@@ -1,16 +1,30 @@
 body {
   display:flex;
   justify-content: center;
+  background-color: #eee;
+  font-size: 14px;
+  font-family: Arial, Helvetica;
+  text-align: center;
 }
   
   section{
+  margin:0px;
   height: 60px;
-  color: white;
-  display:flex;
+   display:flex;
   justify-content: space-around;
   align-items: center;
+   
 }
 
-nav p {
-  margin:0;
-}
+img {
+  width:60%;
+  }
+
+  button {
+    border-radius: 5px;
+    background-color: #4683F2;
+    color: white;
+    padding: 5px 10px;
+
+  }
+ 
